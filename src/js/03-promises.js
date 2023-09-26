@@ -25,12 +25,12 @@ function createPromise(position, delay) {
 function onPromiseCreate(e) {
   e.preventDefault();
 
-  let valueDelay = Number(refs.delay.value);
+  const valueDelay = Number(refs.delay.value);
   let step = Number(refs.step.value);
-  let amount = Number(refs.amount.value);
+  const amount = Number(refs.amount.value);
 
   for (let i = 1; i <= amount; i += 1) {
-    let promiseDelay = valueDelay + step * i;
+    let promiseDelay = valueDelay + step * (i - 1);
 
     createPromise(i, promiseDelay)
       .then(({ position, delay }) => {
